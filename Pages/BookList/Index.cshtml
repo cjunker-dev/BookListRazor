@@ -22,21 +22,27 @@
                             <label asp-for="Books.FirstOrDefault().Author"></label>
                             @* @Html.DisplayNameFor(m => m.Books.FirstOrDefault().Author)*@
                         </th>
+                        <th>
+                            <label asp-for="Books.FirstOrDefault().ISBM"></label>
+                        </th>
                     </tr>
                     @foreach (var item in Model.Books)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(m => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(m => item.Author)
-                            </td>
-                            <td>
-                                <button class="btn btn-danger btn-sm">Delete</button>
-                                <a class="btn btn-secondary btn-sm">Edit</a>
-                            </td>
-                        </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.ISBM)
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                        <a asp-page="Edit" asp-route-id="@item.Id"class="btn btn-primary btn-sm">Edit</a>
+                    </td>
+                </tr>
                     }
                 </table>
             }
